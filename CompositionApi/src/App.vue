@@ -1,47 +1,48 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
+import Lista from './components/lista.vue';
+import { ref } from 'vue';
+import ColorFondo from './components/colorFondo.vue';
+
+const nombre = ref('Carlos');
+const ciudad = ref('Barcelona');
+const dia = ref(true);
+
+
+
+function imprimirTexto() {
+  return `¡Hola, ${nombre.value}! ¿Sigues viviendo en  ${ciudad.value}?`;
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div id="app">
+    <Navbar></Navbar>
+    <h2>Iteración  2</h2>
+    <h3>Parte 1</h3>
+    <p>La suma de 2 + 2 es: {{ 2 + 2 }}</p>
+    <h3>Parte 2</h3>
+    <p>{{ imprimirTexto() }}</p>
+    <br>
+    <h2>Iteración  3</h2>
+    <p v-if="dia">Es de día</p>
+    <br>
+    <h2>Iteración 4</h2>
+    <Lista>
+    </Lista>
+    <br>
+    <h2>Iteración 5</h2>
+    <ColorFondo></ColorFondo>
+  </div>
+  <div>
+    <Footer></Footer>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+#app{
+  color: black;
+  background-color: aquamarine;
 }
 </style>
